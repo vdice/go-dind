@@ -1,6 +1,6 @@
-FROM lachlanevenson/k8s-kubectl:v1.14.2 as kubectl
+FROM lachlanevenson/k8s-kubectl:v1.17.2 as kubectl
 
-FROM golang:1.12.6-alpine3.9 as golang
+FROM golang:1.12.13-alpine3.9 as golang
 
 FROM docker:stable-dind
 
@@ -10,9 +10,9 @@ COPY --from=golang /usr/local/go /usr/local/go
 ENV GOPATH /go
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 
-ENV DEP_VERSION=v0.5.3
-ENV GOLANGCI_LINT_VERSION=v1.17.1
-ENV PACKR2_VERSION=v2.4.0
+ENV DEP_VERSION=v0.5.4
+ENV GOLANGCI_LINT_VERSION=v1.21.0
+ENV PACKR2_VERSION=v2.7.1
 ENV GO_TOOLS_VERSION=release-branch.go1.12
 
 # Add various utilities, both for general usability (bash, make, git)
